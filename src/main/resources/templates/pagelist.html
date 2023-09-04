@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Style the table header */
+thead {
+    background-color: #f2f2f2;
+}
+
+/* Style the header cells */
+th {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style the table cells */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Style the link */
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+/* Style alternating rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+/* Set a maximum width for the rating column */
+td.rating {
+    width: 100px; /* Adjust the value as needed */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+td.id {
+    width: 60px; /* Adjust the value as needed */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+td.index {
+    width: 60px; /* Adjust the value as needed */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+td.name {
+    width: 300px; /* Adjust the value as needed */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+</style>
+</head>
+<body>
+	<form th:action="@{/submit-handle}" method="post">
+        <label for="codeforcesHandle">Codeforces Handle:</label>
+        <input type="text" id="codeforcesHandle" name="codeforcesHandle">
+        <button type="submit">Submit Handle</button>
+    </form>
+    
+    <div th:text="${handle}"></div>
+    
+    <form th:action="@{/submit-checkboxes}" method="post">
+        <input type="checkbox" name="selectedCheckboxes" value="greedy"> Greedy <br>
+        <input type="checkbox" name="selectedCheckboxes" value="constructive algorithms"> Constructive Algorithms <br>
+        <input type="checkbox" name="selectedCheckboxes" value="math"> Math <br>
+        <input type="checkbox" name="selectedCheckboxes" value="strings"> Strings <br>
+        <input type="checkbox" name="selectedCheckboxes" value="two pointers"> 2 Pointers <br>
+        <input type="checkbox" name="selectedCheckboxes" value="binary search"> Binary Search <br>
+        <input type="checkbox" name="selectedCheckboxes" value="dp"> DP <br>
+        <input type="checkbox" name="selectedCheckboxes" value="trees"> Trees <br>
+        <input type="checkbox" name="selectedCheckboxes" value="graphs"> Graphs <br>
+        <input type="checkbox" name="selectedCheckboxes" value="data structures"> Data Structures <br>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <form th:action="@{/submit-difficulty}" method="post">
+        <button type="submit" name="selectedDifficulty" value="easy"> Easy </button>
+    	<button type="submit" name="selectedDifficulty" value="normal"> Normal </button>
+    	<button type="submit" name="selectedDifficulty" value="medium"> Medium </button>
+    	<button type="submit" name="selectedDifficulty" value="hard"> Hard </button>
+   	 	<button type="submit" name="selectedDifficulty" value="extreme"> Extreme </button>
+    </form>
+
+    <br>
+    <table>
+        <tbody>
+            <tr th:each="id, i : ${num}">
+            <td th:text="${id}" class = "id"></td>
+            <td th:text="${index[i.index]}" class = "index"></td>
+            <td th:text="${name[i.index]}" class = "name"></td>
+            <td th:text="${rating[i.index]}" class="rating"></td>
+            <td>
+                <a th:href="${links[i.index]}">View Question</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Details</title>
+</head>
+<body>
+    <h1>List Details</h1>
+    <ul>
+        <!-- Iterate over the stringList passed from the controller -->
+        <li th:each="stringItem : ${stringList}" th:text="${stringItem}"></li>
+    </ul>
+</body>
+</html>

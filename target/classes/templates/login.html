@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div>
+        <h1>Login</h1>
+        <form id="loginForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    
+    <!-- Add Google Sign-In script here if needed -->
+    <!-- For example:
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID">
+    -->
+
+    <!-- Add your JavaScript code to handle form submission and Google Sign-In if needed -->
+    <script>
+        // Example JavaScript code for handling form submission
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const username = formData.get("username");
+            const password = formData.get("password");
+            // You can now perform your login logic here, such as sending the data to the backend for authentication.
+            // Replace the code below with your backend API call or AJAX request.
+            console.log("Username:", username);
+            console.log("Password:", password);
+            // Reset the form after submission
+            event.target.reset();
+        });
+    </script>
+</body>
+</html>

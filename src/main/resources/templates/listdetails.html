@@ -1,0 +1,14 @@
+<!-- display.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Selected Checkboxes</title>
+</head>
+<body>
+    <h1>Selected Checkboxes</h1>
+    <ul>
+        <li th:each="checkbox : ${selectedCheckboxes}" th:text="${checkbox}"></li>
+    </ul>
+    <a th:href="@{/start}">Go back to form</a>
+</body>
+</html>
